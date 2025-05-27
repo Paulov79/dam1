@@ -1,3 +1,5 @@
+import 'database.dart';
+
 class Cliente{
   int? _idcliente;
   int? _nif;
@@ -51,7 +53,13 @@ class Cliente{
      try{
        conn = await DataBase.obtenerConexion();
        await conn.query("INSERT INTO clientes (razonsocial,nif,direccion,telefono,email,riesgo) VALUES (?,?,?,?,?,?,)",[razonsocial,nif,direccion,telefono,email,riesgo]);
-
-     }
-  }
+    guardado = true;
+    } catch (error) {
+      print ('Se produjo un error:$error')
+    } finally {
+      conn.close();
+    }
+    return guardado;  
+  
+    }  
 }
