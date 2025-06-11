@@ -1,25 +1,24 @@
 
+class Login {
+  String _usuarioCorrecto = "Pablo";
+  String _contrasenaCorrecta = "Pablo123";
 
-
-class Login {}
-  String? _usuario;
-  String? _contrasena;
-
-  String? get usuario => _usuario;
-  String? get contrasena => _contrasena;
-  
-  set usuario(String? valor){
-    _usuario = usuario; 
+  bool autenticar(String usuario, String contrasena) {
+    return usuario == _usuarioCorrecto && contrasena == _contrasenaCorrecta;
   }
+}
 
-  set contrasena(String? valor){
-    _contrasena = contrasena;
+ 
+void main() {
+  Login login = Login();
+
+  String usuario = "Pablo";  
+  String contrasena = "Pablo123";
+
+  if (login.autenticar(usuario, contrasena)) {
+    print("¡Inicio de sesión exitoso!");
+  } else {
+    print("Usuario o contraseña incorrectos.");
   }
-  
-  Meterdatos(String usuario , String contrasena);
-
-
-  Login({required this.usuario , required this.contrasena});
-
-  
+} 
   

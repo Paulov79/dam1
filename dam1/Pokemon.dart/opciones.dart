@@ -1,5 +1,6 @@
-
-void interaccion() {
+import 'dart:io';
+ 
+  interaccion() {
   print('Selecciona una opción:');
   print('1. Saludar');
   print('2. Despedirse');
